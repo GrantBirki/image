@@ -1,4 +1,18 @@
 <!DOCTYPE html>
 <html>
-    <h1>Static Image Site</h1> 
-</html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <title>img.birki.io</title>
+</head>
+<body>
+  <h1>Listing /img</h1>
+  <div id="renderList"></div>
+  <script>
+    $.getJSON('./img', data => {
+        data.forEach(file => {
+            // Append a list item with a link to the file
+            $('#renderList').append(`<li><a href="./img/${file}">${file}</a></li>`);
+        });
+    });
+  </script>
+</body>
